@@ -88,7 +88,7 @@
 <?php
 $menu_id = $_GET['menu_id'];
 
-if(!isset($menu_id) || $menu_id == NULL || $menu_id == '') {
+if(!isset($menu_id) || $menu_id == NULL || $menu_id == '') { // when menu_id is empty
 ?>
 
 <form action="">
@@ -102,8 +102,26 @@ if(!isset($menu_id) || $menu_id == NULL || $menu_id == '') {
 </form>
 
 <?php
-    die();
-}
+
+} else { // when menu_id is not empty
+
+    require_once realpath(dirname(__FILE__)) . '/../../config.php';
+
+    if (!$conn) {
+        die('DB connection failed'); 
+    }
+
+    $query = 'SELECT COUNT(*) AS count FROM lunch_menu WHERE menu_id = \''.$menu_id.'\'';
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $menu_id_exists = $row['count'];
+
+    if($menu_id_exists > 0) {
+        
+        echo 'menu_id exist';
+
+    } else {
+
 ?>
 
 
@@ -150,7 +168,16 @@ if(!isset($menu_id) || $menu_id == NULL || $menu_id == '') {
 </form>
 
 
+<?php
 
+    } // end if
+
+    // disconnect database
+    mysqli_close($conn);
+
+} // end if
+
+?>
 
 
 
