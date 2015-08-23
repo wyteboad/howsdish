@@ -1,0 +1,21 @@
+div#page-content div.container div#imagespace {
+	text-align: center;
+}
+
+div#page-content div.container div#imagespace img#foodimage {
+	width: 100%;
+}
+
+div#page-content div.container div#votingspace {
+	text-align: center;
+}
+
+div#page-content div.container div#votingspace button#votebutton{
+	font-size: 5em;
+	height: 10%;
+	background-color: #bbb;
+}
+div#up span, div#down span{
+	font-size: 7em;
+	text-align: center;
+}
