@@ -86,8 +86,10 @@
 <?php
 require_once realpath(dirname(__FILE__)) . '/../../config.php';
 
-if ($_POST['pass'] !== $admin_password) {
+if ($_POST['pass'] !== 'test1234') {
     
+    header('Location: ./?menu_id='.$_POST['menu-id']);
+    die();   
 }
 
 
