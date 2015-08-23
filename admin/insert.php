@@ -117,6 +117,18 @@ if (isset($_FILES['image'])) {
             echo '<p>description : '.$_POST['description'].'</p>';
             echo '<p><img src="../img/'.$new_file_name.'"></p>';
             echo '<p>password : '.$_POST['pass'].'</p>';
+
+            $img_link = '../img/'.$new_file_name;
+            if (!$conn) {
+                die('database connection failed');
+            }
+            // insert vote result to db (when  not existed)
+            $query = 'INSERT INTO lunch_menu (menu_id, category, title, description, img_link) VALUES(\''.$_POST['menu-id'].'\',\''.$_POST['category'].'\',\''.$_POST['title'].'\',\''.$_POST['description'].'\',\''.$img_link.'\') ';
+            $result = mysqli_query($conn, $query);
+
+            // disconnect database
+            mysqli_close($conn);
+
         } else {
             foreach ($errors as $error) {
             echo $error. '<br>';    
