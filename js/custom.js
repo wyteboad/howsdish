@@ -119,9 +119,7 @@ $(document).ready(function() {
         	inline:true
         });
 
-        addFocusToDisabledToday();
-
-        addFocusMenuId(getUrlVars()['menu_id']);
+        addFocusSelectedDate();
 
 	    // set show-dtp-btn title
 	    var selectedDate = (getSelectedDate(getUrlVars()['menu_id'], '')) ? getSelectedDate(getUrlVars()['menu_id'], '') : timeConverter($.now()).substring(0,8);
@@ -141,6 +139,13 @@ $(document).ready(function() {
 		}
     }
 
+
+    function addFocusSelectedDate() {
+    	addFocusToDisabledToday();
+        addFocusMenuId(getUrlVars()['menu_id']);
+    }
+
+
     function addFocusToDisabledToday() {
     	if ($('td[data-action="selectDay"].day.today.disabled').length) {
     		$('td[data-action="selectDay"].active').removeClass('active');
@@ -152,9 +157,11 @@ $(document).ready(function() {
     	var selectedDate;
     	if(UrlVarMenuId) {
     		selectedDate = getSelectedDate(UrlVarMenuId, '/');
+    		selectedDate2 = getSelectedDate(UrlVarMenuId, '');
     		//console.log(selectedDataDay);
     		$('td[data-action="selectDay"].active').removeClass('active');
     		$('td[data-day="'+selectedDate+'"]').addClass('active');
+    		$('#datetimepicker1').data('DateTimePicker').date(selectedDate2);
     	}
     }
 
