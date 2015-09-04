@@ -158,7 +158,7 @@ mysqli_close($conn);
 
 					<li class="active"><a href="vote_result.php">Vote Results</a></li>
 
-					<li class="dropdown">
+					<!-- <li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Game <b class="caret"></b></a>
 						
 						<ul class="dropdown-menu">
@@ -180,8 +180,8 @@ mysqli_close($conn);
 							<li class="dropdown-header">Quiz Games</li>
 							<li><a href="#">Quiz 3-1</a></li>
 							<li><a href="#">Quiz 3-2</a></li>
-						</ul><!-- .dropdown-menu -->
-					</li><!-- .dropdown -->
+						</ul> --><!-- .dropdown-menu -->
+					<!-- </li> --><!-- .dropdown -->
 
 					<li><a href="about.php">About US</a></li>
 				</ul><!-- .nav -->
