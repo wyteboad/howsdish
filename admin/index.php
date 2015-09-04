@@ -105,6 +105,9 @@ if(!isset($menu_id) || $menu_id == NULL || $menu_id == '') { // when menu_id is 
 
 } else { // when menu_id is not empty
 
+    $ip=$_SERVER['REMOTE_ADDR'];
+    $localhost = ($ip == '::1') ? true : false;
+
     require_once realpath(dirname(__FILE__)) . '/../../config.php';
 
     if (!$conn) {
