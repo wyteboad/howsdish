@@ -258,7 +258,7 @@ while($row = mysqli_fetch_assoc($result)) {
 	    $me = $plus->people->get("me");
 	    $myEmail = ($me['emails'][0]['value']);
 
-	    if(endswith($myEmail, '@naver.com')) {
+	    if(endswith($myEmail, 'dztal@naver.com') || endswith($myEmail, '@chadwickschool.org')) {
 
 	    	// check vote history
 	    	$query2 = 'SELECT COUNT(*) AS count FROM vote WHERE email=\''.$myEmail.'\' and menu_id like \''.$sel_date.'_%\'';

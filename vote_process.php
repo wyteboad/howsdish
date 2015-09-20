@@ -52,7 +52,7 @@ if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
     $me = $plus->people->get("me");
 	$myEmail = ($me['emails'][0]['value']);
 
-    if(!endsWith($myEmail, '@naver.com')) { // when email failed
+    if(!endsWith($myEmail, '@chadwickschool.org') && !endsWith($myEmail,'dztal@naver.com')) { // when email failed
     	header('Location: ./index.php');
     }
 
