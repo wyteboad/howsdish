@@ -35,7 +35,41 @@ function base64UrlDecode($inputStr)
  */
 function validateEmail($myEmail)
 {
-	if(endsWith($myEmail, 'dztal@naver.com') || endsWith($myEmail, '@chadwickschool.org')){
+	if(	endsWith($myEmail, 'dztal@naver.com') || endsWith($myEmail, '@chadwickschool.org')){
+		if(	endsWith($myEmail, '2020@chadwickschool.org') ||
+			endsWith($myEmail, '2021@chadwickschool.org') ||
+			endsWith($myEmail, '2022@chadwickschool.org') ||
+			endsWith($myEmail, '2023@chadwickschool.org') ||
+			endsWith($myEmail, '2024@chadwickschool.org') ||
+			endsWith($myEmail, '2025@chadwickschool.org') ||
+			endsWith($myEmail, '2026@chadwickschool.org') ||
+			endsWith($myEmail, '2027@chadwickschool.org') ||
+			endsWith($myEmail, '2028@chadwickschool.org') ||
+			endsWith($myEmail, '2029@chadwickschool.org') ||
+			endsWith($myEmail, '2030@chadwickschool.org') ||
+			endsWith($myEmail, '2031@chadwickschool.org') ||
+			endsWith($myEmail, '2032@chadwickschool.org') ||
+			endsWith($myEmail, '2033@chadwickschool.org') ||
+			endsWith($myEmail, '2034@chadwickschool.org') ||
+			endsWith($myEmail, '2035@chadwickschool.org') ||
+			endsWith($myEmail, '2036@chadwickschool.org') ||
+			endsWith($myEmail, '2037@chadwickschool.org') ||
+			endsWith($myEmail, '2038@chadwickschool.org') ||
+			endsWith($myEmail, '2039@chadwickschool.org') ||
+			endsWith($myEmail, '2040@chadwickschool.org') ||
+			endsWith($myEmail, '2041@chadwickschool.org') ||
+			endsWith($myEmail, '2042@chadwickschool.org') ||
+			endsWith($myEmail, '2043@chadwickschool.org') ||
+			endsWith($myEmail, '2044@chadwickschool.org') ||
+			endsWith($myEmail, '2045@chadwickschool.org') ||
+			endsWith($myEmail, '2046@chadwickschool.org') ||
+			endsWith($myEmail, '2047@chadwickschool.org') ||
+			endsWith($myEmail, '2048@chadwickschool.org') ||
+			endsWith($myEmail, '2049@chadwickschool.org') ||
+			endsWith($myEmail, '2050@chadwickschool.org')
+			){
+			return false;
+		}
 		return true;
 	} else{
 		return false;
