@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+
+
+require_once realpath(dirname(__FILE__)) . '/functions.php';
+
 date_default_timezone_set("Asia/Seoul");
 $sel_date = (isset($_GET['menu_id']) && $_GET['menu_id']) ? substr($_GET['menu_id'], 0, 8) : date('Ymd');
 
@@ -13,31 +17,7 @@ if (!$localhost) {
 	require_once realpath(dirname(__FILE__)) . '/../src/Google/autoload.php';
 }
 
-function startsWith($haystack, $needle)
-{
-     $length = strlen($needle);
-     return (substr($haystack, 0, $length) === $needle);
-}
 
-function endsWith($haystack, $needle)
-{
-    $length = strlen($needle);
-    if ($length == 0) {
-        return true;
-    }
-
-    return (substr($haystack, -$length) === $needle);
-}
-
-function base64UrlEncode($inputStr)
-{
-    return strtr(base64_encode($inputStr), '+/=', '-_,');
-}
-
-function base64UrlDecode($inputStr)
-{
-    return base64_decode(strtr($inputStr, '-_,', '+/='));
-}
 
 require_once realpath(dirname(__FILE__)) . '/../config.php';
 
@@ -258,7 +238,7 @@ while($row = mysqli_fetch_assoc($result)) {
 	    $me = $plus->people->get("me");
 	    $myEmail = ($me['emails'][0]['value']);
 
-	    if(endswith($myEmail, 'dztal@naver.com') || endswith($myEmail, '@chadwickschool.org')) {
+	    if(validateEmail($myEmail)) {
 
 	    	// check vote history
 	    	$query2 = 'SELECT COUNT(*) AS count FROM vote WHERE email=\''.$myEmail.'\' and menu_id like \''.$sel_date.'_%\'';

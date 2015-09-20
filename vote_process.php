@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require_once realpath(dirname(__FILE__)) . '/functions.php';
+
 $menuId = (isset($_GET['menu_id']) && !empty($_GET['menu_id'])) ? $_GET['menu_id'] : NULL;
 $voteOption = (isset($_GET['vote_option']) && !empty($_GET['vote_option'])) ? $_GET['vote_option'] : NULL;
 
@@ -17,22 +19,6 @@ if (!$localhost) {
 	require_once realpath(dirname(__FILE__)) . '/../src/Google/autoload.php';
 } else {
 	require_once realpath(dirname(__FILE__)) . '/../src/Google/autoload.php';
-}
-
-function startsWith($haystack, $needle)
-{
-     $length = strlen($needle);
-     return (substr($haystack, 0, $length) === $needle);
-}
-
-function endsWith($haystack, $needle)
-{
-    $length = strlen($needle);
-    if ($length == 0) {
-        return true;
-    }
-
-    return (substr($haystack, -$length) === $needle);
 }
 
 require_once realpath(dirname(__FILE__)) . '/../config.php';
@@ -54,7 +40,7 @@ if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
     $me = $plus->people->get("me");
 	$myEmail = ($me['emails'][0]['value']);
 
-    if(!endsWith($myEmail, '@chadwickschool.org') && !endsWith($myEmail,'dztal@naver.com')) { // when email failed
+    if(!validateEmail($myEmail)) { // when email failed
     	header('Location: ./index.php');
     }
 
