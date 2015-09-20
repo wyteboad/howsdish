@@ -1,12 +1,14 @@
 <?php
 session_start();
 
-$menuId = (isset($_GET['menu_id']) && $_GET['menu_id']) ? $_GET['menu_id'] : NULL;
-$voteOption = (isset($_GET['vote_option']) && $_GET['vote_option']) ? $_GET['vote_option'] : NULL;
+$menuId = (isset($_GET['menu_id']) && !empty($_GET['menu_id'])) ? $_GET['menu_id'] : NULL;
+$voteOption = (isset($_GET['vote_option']) && !empty($_GET['vote_option'])) ? $_GET['vote_option'] : NULL;
 
 if(!$menuId || !$voteOption) {
 	header('Location: ./index.php');
 }
+
+
 
 $ip=$_SERVER['REMOTE_ADDR'];
 $localhost = ($ip == '::1') ? true : false;
@@ -61,9 +63,6 @@ if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
     // echo 'selected vote option : '.$voteOption.'<br>';
     // echo $myEmail.'<br>';
 
-    // change voteOption string
-    $voteOption = ($voteOption == 'up'  ) ? 'true' :
-    			  ($voteOption == 'down') ? 'false' : NULL;
 
 	if (!$conn) {
 		die('database connection failed');

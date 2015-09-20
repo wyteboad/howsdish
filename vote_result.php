@@ -92,15 +92,15 @@ $row = mysqli_fetch_assoc($result);
 $menuItemCnt = $row['count'];
 
 for ($itemIdx=1; $itemIdx <= $menuItemCnt; $itemIdx++) { 
-	$query = 'SELECT COUNT(*) AS count FROM vote WHERE menu_id = \''.$sel_date.'_'.sprintf('%02d', $itemIdx).'\' and vote_result = \'true\'';
+	$query = 'SELECT COUNT(*) AS count FROM vote WHERE menu_id = \''.$sel_date.'_'.sprintf('%02d', $itemIdx).'\' and vote_result = \'up\'';
 	$result = mysqli_query($conn, $query);
 	$row = mysqli_fetch_assoc($result);
-	$itemVoteCnt[$itemIdx]['true'] = $row['count'];
+	$itemVoteCnt[$itemIdx]['up'] = $row['count'];
 
-	$query = 'SELECT COUNT(*) AS count FROM vote WHERE menu_id = \''.$sel_date.'_'.sprintf('%02d', $itemIdx).'\' and vote_result = \'false\'';
+	$query = 'SELECT COUNT(*) AS count FROM vote WHERE menu_id = \''.$sel_date.'_'.sprintf('%02d', $itemIdx).'\' and vote_result = \'down\'';
 	$result = mysqli_query($conn, $query);
 	$row = mysqli_fetch_assoc($result);
-	$itemVoteCnt[$itemIdx]['false'] = $row['count'];
+	$itemVoteCnt[$itemIdx]['down'] = $row['count'];
 
 	$query = 'SELECT * FROM lunch_menu WHERE menu_id = \''.$sel_date.'_'.sprintf('%02d', $itemIdx).'\'';
 	$result = mysqli_query($conn, $query);
@@ -235,7 +235,7 @@ for ($itemIdx=1; $itemIdx <= $menuItemCnt; $itemIdx++) {
 						</div><!-- .col-xs-2 -->
 						<div class="col-xs-10 col-sm-11">
 							<div class="progress">
-							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?php echo (($itemVoteCnt[$itemIdx]['true']/$totalVoteCnt)*100);?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo (($itemVoteCnt[$itemIdx]['true']/$totalVoteCnt)*100);?>%"><?php echo $itemVoteCnt[$itemIdx]['true']; ?>
+							  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<?php echo (($itemVoteCnt[$itemIdx]['up']/$totalVoteCnt)*100);?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo (($itemVoteCnt[$itemIdx]['up']/$totalVoteCnt)*100);?>%"><?php echo $itemVoteCnt[$itemIdx]['up']; ?>
 							  </div>
 							</div><!-- .progress -->
 						</div><!-- .col-xs-10 -->
@@ -246,7 +246,7 @@ for ($itemIdx=1; $itemIdx <= $menuItemCnt; $itemIdx++) {
 						</div><!-- .col-xs-2 -->
 						<div class="col-xs-10 col-sm-11">
 							<div class="progress">
-							  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?php echo (($itemVoteCnt[$itemIdx]['false']/$totalVoteCnt)*100);?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo (($itemVoteCnt[$itemIdx]['false']/$totalVoteCnt)*100);?>%"><?php echo $itemVoteCnt[$itemIdx]['false']; ?>
+							  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<?php echo (($itemVoteCnt[$itemIdx]['down']/$totalVoteCnt)*100);?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo (($itemVoteCnt[$itemIdx]['down']/$totalVoteCnt)*100);?>%"><?php echo $itemVoteCnt[$itemIdx]['down']; ?>
 							  </div>
 							</div><!-- .progress -->
 						</div><!-- .col-xs-10 -->
