@@ -179,7 +179,7 @@ while($row = mysqli_fetch_assoc($result)) {
 					      		<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $item_cnt; ?>" aria-expanded="<?php echo ($item_cnt == 1) ? 'true' : 'false'; ?>" aria-controls="collapse<?php echo $item_cnt; ?>">
 						      		<h4 class="panel-title" style="line-height: 30px;">
 						      			<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;
-										<?php echo $row['category'].''.$row['title']; ?>
+										<?php echo $row['category'].' - '.$row['title']; ?>
 								    </h4>
 						      	</a>
 						    </div>
