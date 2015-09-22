@@ -76,7 +76,7 @@ $item_cnt = 1;
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>School Food</title>
+	<title>How's Dish?</title>
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap-dist.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.css">
