@@ -84,9 +84,10 @@
 
 
 <?php
+
 require_once realpath(dirname(__FILE__)) . '/../../config.php';
 
-if ($_POST['pass'] !== 'test1234') {
+if ($_POST['pass'] !== $adminPassword) {
     
     header('Location: ./?menu_id='.$_POST['menu-id']);
     die();   
@@ -118,7 +119,7 @@ if (isset($_FILES['image'])) {
             echo '<p><img src="../img/'.$new_file_name.'"></p>';
             echo '<p>password : '.$_POST['pass'].'</p>';
 
-            $img_link = '../img/'.$new_file_name;
+            $img_link = './img/'.$new_file_name;
             if (!$conn) {
                 die('database connection failed');
             }
