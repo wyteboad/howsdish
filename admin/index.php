@@ -86,9 +86,13 @@
 
 
 <?php
-$menu_id = $_GET['menu_id'];
+if(isset($_GET['menu_id']) && !empty($_GET['menu_id'])) {
+    $menu_id = $_GET['menu_id'];
+} else {
+    $menu_id = NULL;
+}
 
-if(!isset($menu_id) || $menu_id == NULL || $menu_id == '') { // when menu_id is empty
+if($menu_id === NULL) { // when menu_id is null
 ?>
 
 <form action="">
@@ -104,9 +108,6 @@ if(!isset($menu_id) || $menu_id == NULL || $menu_id == '') { // when menu_id is 
 <?php
 
 } else { // when menu_id is not empty
-
-    $ip=$_SERVER['REMOTE_ADDR'];
-    $localhost = ($ip == '::1') ? true : false;
 
     require_once realpath(dirname(__FILE__)) . '/../../config.php';
 
