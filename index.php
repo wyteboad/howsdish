@@ -6,7 +6,7 @@ session_start();
 require_once realpath(dirname(__FILE__)) . '/functions.php';
 
 date_default_timezone_set("Asia/Seoul");
-$sel_date = (isset($_GET['menu_id']) && $_GET['menu_id']) ? substr($_GET['menu_id'], 0, 8) : date('Ymd');
+$sel_date = (isset($_GET['menu_id']) && !empty($_GET['menu_id'])) ? substr($_GET['menu_id'], 0, 8) : date('Ymd');
 
 require_once realpath(dirname(__FILE__)) . '/../config.php';
 
