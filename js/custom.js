@@ -79,8 +79,8 @@ $(document).ready(function() {
 		var selectedDayNoon = getSelectedDate(getUrlVars()['menu_id'], '')+'120000';
 		selectedDayNoon = (getSelectedDate(getUrlVars()['menu_id'], '')) ? selectedDayNoon : formattedTime.substring(0,8)+'120000';
 
-		// console.log('formattedTime : ' + formattedTime);
-		// console.log('selectedDayNoon : ' + selectedDayNoon);
+		console.log('formattedTime : ' + formattedTime);
+		console.log('selectedDayNoon : ' + selectedDayNoon);
 
 		if (formattedTime > selectedDayNoon) {
 			// show votable indicator
@@ -200,7 +200,7 @@ $(document).ready(function() {
 		min = (min < 10) ? '0' + min : min;
 		var sec = a.getSeconds();
 		sec = (sec < 10) ? '0' + sec : sec;
-		var time = year +  month +  date + hour + min + sec ;
+		var time = year.toString() +  month.toString() +  date.toString() + hour.toString() + min.toString() + sec.toString() ;
 		return time;
 	}
 
