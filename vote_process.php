@@ -10,18 +10,13 @@ if(!$menuId || !$voteOption) {
 	header('Location: ./index.php');
 }
 
-
-
-$ip=$_SERVER['REMOTE_ADDR'];
-$localhost = ($ip == '::1') ? true : false;
+require_once realpath(dirname(__FILE__)) . '/../config.php';
 
 if (!$localhost) {
 	require_once realpath(dirname(__FILE__)) . '/../src/Google/autoload.php';
 } else {
 	require_once realpath(dirname(__FILE__)) . '/../src/Google/autoload.php';
 }
-
-require_once realpath(dirname(__FILE__)) . '/../config.php';
 
 $client = new Google_Client();
 $client->setClientId($client_id);
