@@ -77,4 +77,10 @@ function validateEmail($myEmail)
 }
 
 
+function filterStringToDB($oldStr)
+{
+	$newStr = str_replace("'", "''", $oldStr);
+	return $newStr;
+}
+
 ?>

@@ -85,6 +85,8 @@
 
 <?php
 
+require_once realpath(dirname(__FILE__)) . '/../functions.php';
+
 require_once realpath(dirname(__FILE__)) . '/../../config.php';
 
 if ($_POST['pass'] !== $adminPassword) {
@@ -124,7 +126,7 @@ if (isset($_FILES['image'])) {
                 die('database connection failed');
             }
             // insert vote result to db (when  not existed)
-            $query = 'INSERT INTO lunch_menu (menu_id, category, title, description, img_link) VALUES(\''.$_POST['menu-id'].'\',\''.$_POST['category'].'\',\''.$_POST['title'].'\',\''.$_POST['description'].'\',\''.$img_link.'\') ';
+            $query = 'INSERT INTO lunch_menu (menu_id, category, title, description, img_link) VALUES(\''.$_POST['menu-id'].'\',\''.filterStringToDB($_POST['category']).'\',\''.filterStringToDB($_POST['title']).'\',\''.filterStringToDB($_POST['description']).'\',\''.$img_link.'\') ';
             $result = mysqli_query($conn, $query);
 
             // disconnect database
